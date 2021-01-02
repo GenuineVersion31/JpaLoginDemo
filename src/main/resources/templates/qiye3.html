@@ -72,8 +72,8 @@
     <div class="sidebarSep mt0"></div>
     
     <!-- Search widget -->
-    <form action="" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+    <form action="http://localhost:8080/check2" class="sidebarSearch">
+        <input type="text" name="university" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
     
@@ -250,111 +250,27 @@
         <div class="widgets">
 					<div class="widget">
                     <div class="title"><img src="images/icons/dark/stats.png" alt="" class="titleIcon"><h6>实习生评价</h6></div>
-                    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
-                        <thead>
-                            <tr>
-                                <td width="120">学号</td>
-                                <td width="80">姓名</td>
-                                <td>实习项目与学校</td>
-                                <td width="80">是否评价</td>
-                                <td width="200">评价时间</td>
-                                <td width="80">评价</td>
-                                <td width="80">平日表现</td>
+                        <table cellpadding="0" cellspacing="0" width="100%" class="sTable" style="table-layout:fixed">
+                            <thead>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>用户名</th>
+                            <th>密码</th>
+                            <th>评价</th>
+                            <th>评价信息</th>
+                            </thead>
+                            <tbody>
+                            <tbody>
+                            <tr th:each="entries,stat:${resultList}" >
+                                <td th:text="${entries['uid']}"></td>
+                                <td th:text="${entries['name']}"></td>
+                                <td th:text="${entries['username']}">上海龙弈信息科技有限公司</td>
+                                <td th:text="${entries['pwd']}"></td>
+                                <td>无</td>
+                                <td>无</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span>上海商学院 校企联盟</span></td>
-                                <td align="center"><span class="statsPlus">是</span></td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                                <td align="center">优秀</td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center"><span>上海交通大学 Coop校企合作</span></td>
-                                <td align="center"><span class="statsMinus">否</span></td>
-                                <td align="center"></td>
-                                <td align="center"><a href="">评价</a></td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span>上海商学院 校企联盟</span></td>
-                                <td align="center"><span class="statsPlus">是</span></td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                                <td align="center">优秀</td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center"><span>上海交通大学 Coop校企合作</span></td>
-                                <td align="center"><span class="statsMinus">否</span></td>
-                                <td align="center"></td>
-                                <td align="center"><a href="">评价</a></td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span>上海商学院 校企联盟</span></td>
-                                <td align="center"><span class="statsPlus">是</span></td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                                <td align="center">优秀</td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center"><span>上海交通大学 Coop校企合作</span></td>
-                                <td align="center"><span class="statsMinus">否</span></td>
-                                <td align="center"></td>
-                                <td align="center"><a href="">评价</a></td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span>上海商学院 校企联盟</span></td>
-                                <td align="center"><span class="statsPlus">是</span></td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                                <td align="center">优秀</td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center"><span>上海交通大学 Coop校企合作</span></td>
-                                <td align="center"><span class="statsMinus">否</span></td>
-                                <td align="center"></td>
-                                <td align="center"><a href="">评价</a></td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span>上海商学院 校企联盟</span></td>
-                                <td align="center"><span class="statsPlus">是</span></td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                                <td align="center">优秀</td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center"><span>上海交通大学 Coop校企合作</span></td>
-                                <td align="center"><span class="statsMinus">否</span></td>
-                                <td align="center"></td>
-                                <td align="center"><a href="">评价</a></td>
-                                <td align="center"><a href="">查看</a></td>
-                            </tr>
-                        </tbody>
-                    </table>    
+                            </tbody>
+                        </table>
                 </div> 
             <div class="clear"></div>
         </div>

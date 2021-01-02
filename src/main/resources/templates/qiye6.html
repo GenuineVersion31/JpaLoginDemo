@@ -72,8 +72,8 @@
     <div class="sidebarSep mt0"></div>
     
     <!-- Search widget -->
-    <form action="" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+    <form action="http://localhost:8080/check2" class="sidebarSearch">
+        <input type="text" name="university" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
     
@@ -259,126 +259,40 @@
                         <div id="tab1" class="tab_content np" style="display: block;">
 													<form  class="form" method="post" action="">
 									        	<fieldset>
-                                               
-            
-                <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
-                       
-                        <thead>
-                       
-                            <tr>
-                                <td width="80">学号</td>
-                                <td width="80">姓名</td>
-                                <td>是否提交成功</td>
-                                <td width="80">类型</td>
-                                <td width="80">指导老师</td>
-                                <td width="80">下载次数</td>
-                                <td width="80">提交时间</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           <tr>
-                                <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsPlus">成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">2</td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                            </tr>
-                            <tr>
-                                 <td align="center"><a href="#" title="" class="webStatsLink">17102040201</a></td>
-                                <td align="center">张三</td>
-                                <td align="center"><span class="statsMinus">未成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">0</td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                            </tr>
-                           <tr>
-                                <td align="center"><a href="#" title="" class="webStatsLink">17102040202</a></td>
-                                <td align="center">李四</td>
-                                <td align="center"><span class="statsPlus">成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">2</td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                            </tr>
-                            <tr>
-                                 <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsMinus">未成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">0</td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsPlus">成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">2</td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                            </tr>
-                            <tr>
-                                 <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsMinus">未成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">0</td>
-                                <td align="center">2019-05-25 13:46:58</td>
-                            </tr>
-                           <tr>
-                                <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsPlus">成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">2</td>
-                                <td align="center">2019-05-24 13:46:58</td>
-                            </tr>
-                            <tr>
-                                 <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsMinus">未成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">0</td>
-                                <td align="center">2019-05-23 13:46:58</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsPlus">成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">2</td>
-                                <td align="center">2019-05-22 13:46:58</td>
-                            </tr>
-                            <tr>
-                                 <td align="center"><a href="#" title="" class="webStatsLink">17102040200</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center"><span class="statsMinus">未成功</span></td>
-                                <td align="center">日志</td>
-                                <td align="center">王老师</td>
-                                <td align="center">0</td>
-                                <td align="center">2019-05-21 13:46:58</td>
-                            </tr> 
-                        </tbody>
-                    </table>
+                                                    <table cellpadding="0" cellspacing="0" width="100%" class="sTable" style="table-layout:fixed">
+                                                        <thead>
+                                                        <th>学号</th>
+                                                        <th>姓名</th>
+                                                        <th>是否提交成功</th>
+                                                        <th>类型</th>
+                                                        <th>指导老师</th>
+                                                        <th>下载次数</th>
+                                                        <th>提交时间</th>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tbody>
+                                                        <tr th:each="entries,stat:${resultList}" >
+                                                            <td th:text="${entries['uid']}"></td>
+                                                            <td th:text="${entries['name']}"></td>
+                                                            <td><span class="statsPlus">成功</span></td>
+                                                            <td>周报</td>
+                                                            <td>王老师</td>
+                                                            <td>0</td>
+                                                            <td th:tex="${entries['time']}"></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
 				  </fieldset>
                    </form>
-                </div> 
+                </div>
             <div class="clear"></div>
                         <div id="tab2" class="tab_content np" style="display: none;">
 													<form class="form" method="post" action="">
 									        	<fieldset>
 					                    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
-                       
+
                         <thead>
-                       
+
                             <tr>
                                 <td width="80">学号</td>
                                 <td width="80">姓名</td>
@@ -483,7 +397,7 @@
                     </table>
                                                 </fieldset>
                                                     </form>
-                </div> 
+                </div>
             <div class="clear"></div>
         </div>
     </div>
@@ -494,9 +408,9 @@
 					                    <div class="formRow">
 					                        <table cellpadding="0" cellspacing="0" width="0" class="sTable">
                        <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
-                       
+
                         <thead>
-                       
+
                             <tr>
                                 <td width="80">学号</td>
                                 <td width="80">姓名</td>
@@ -562,7 +476,7 @@
                                 <td align="center">0</td>
                                 <td align="center">2019-05-25 13:46:58</td>
                             </tr>
-                    </table>    
+                    </table>
                                             </table>
                                         </div>
             <div class="clear"></div>

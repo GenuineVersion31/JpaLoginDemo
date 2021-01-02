@@ -72,8 +72,8 @@
     <div class="sidebarSep mt0"></div>
     
     <!-- Search widget -->
-    <form action="" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+    <form action="http://localhost:8080/check2" class="sidebarSearch">
+        <input type="text" name="university" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
     
@@ -257,100 +257,27 @@
         <div class="widgets">
 					<div class="widget">
                     <div class="title"><img src="images/icons/dark/stats.png" alt="" class="titleIcon"><h6>学生信息汇总</h6></div>
-                    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
-                        <thead>
-                            <tr>
-                                <td width="100">学号</td>
-                                <td width="80">姓名</td>
-                                <td>学校</td>
-                                <td width="280">实习项目</td>
-                                <td width="120">联系方式</td>
-                                <td width="120">所在地</td>
+                        <table cellpadding="0" cellspacing="0" width="100%" class="sTable" style="table-layout:fixed">
+                            <thead>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th width=40%>学校</th>
+                            <th>公司</th>
+                            <th>联系方式</th>
+                            <th>开始时间</th>
+                            </thead>
+                            <tbody>
+                            <tbody>
+                            <tr th:each="entries,stat:${resultList}" >
+                                <td th:text="${entries['uid']}"></td>
+                                <td th:text="${entries['name']}"></td>
+                                <td th:text="${entries['school']}"></td>
+                                <td th:text="${name}"></td>
+                                <td th:text="${entries['phone']}"></td>
+                                <td th:text="${entries['time']}"></td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center">上海商学院</td>
-                                <td align="center"><span>校企联盟</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市奉贤区</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17101020116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center">上海交通大学</td>
-                                <td align="center"><span>Coop校企合作</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市闵行区</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center">上海商学院</td>
-                                <td align="center"><span>校企联盟</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市奉贤区</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17101020116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center">上海交通大学</td>
-                                <td align="center"><span>Coop校企合作</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市闵行区</td>
-                            </tr>
-                           <tr>
-                               <td align="center"><a href="#" title="">17102040123</a></td>
-                               <td align="center">韩梅梅</td>
-                               <td align="center">上海商学院</td>
-                               <td align="center"><span>校企联盟</span></td>
-                               <td align="center">15782394018</td>
-                               <td align="center">上海市奉贤区</td>
-                           </tr>
-                           <tr>
-                               <td align="center"><a href="#" title="">17101020116</a></td>
-                               <td align="center">李雷</td>
-                               <td align="center">上海交通大学</td>
-                               <td align="center"><span>Coop校企合作</span></td>
-                               <td align="center">15782394018</td>
-                               <td align="center">上海市闵行区</td>
-                           </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center">上海商学院</td>
-                                <td align="center"><span>校企联盟</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市奉贤区</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17101020116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center">上海交通大学</td>
-                                <td align="center"><span>Coop校企合作</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市闵行区</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040123</a></td>
-                                <td align="center">韩梅梅</td>
-                                <td align="center">上海商学院</td>
-                                <td align="center"><span>校企联盟</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市奉贤区</td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="#" title="">17101020116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center">上海交通大学</td>
-                                <td align="center"><span>Coop校企合作</span></td>
-                                <td align="center">15782394018</td>
-                                <td align="center">上海市闵行区</td>
-                            </tr>
-                        </tbody>
-                    </table>    
+                            </tbody>
+                        </table>
                 </div> 
             <div class="clear"></div>
         </div>

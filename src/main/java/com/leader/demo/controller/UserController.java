@@ -26,15 +26,17 @@ public class UserController {
     DetailServiceImpl detailService;
     @Autowired
     ActivityImpl activityService;
+
     public static Detail all;
     @RequestMapping("/login")
     public String login(){
         return "Sign_in";
     }
 
-    @RequestMapping("doLogin")
+    @RequestMapping("/doLogin")
     public String doLogin(User user, Map<String,Object> map){
-        User user1 =  userServiceImpl.getUser(user.getPassword(),user.getUsername());
+        User user1 =  userServiceImpl.getUser(user.getUsername(),user.getPassword());
+        System.out.println(user1.getPassword());
         if(user1 == null){
             map.put("msg","李若阳");
             return "redirect:http://localhost:8080/login";
@@ -61,8 +63,6 @@ public class UserController {
     }
     @RequestMapping("doRegist")
     public String doRegist(User user, Map<String,Object> map){
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
         userServiceImpl.insertUser(user);
         map.put("msg","注册成功");
         return "success";
@@ -100,24 +100,6 @@ public class UserController {
             model.addAttribute("resultList",resultList);
         }
         return "stu3";
-    }
-    @RequestMapping("stu33")
-    public String stu33(Map<String,Object>map, Model model){
-        map.put("school",all.getSchool());
-        map.put("name",all.getFull_name());
-        map.put("id",all.getStudent_ID());
-        map.put("msg","你好！    "+all.getFull_name());
-        List<Map<String,Object>> resultList =new ArrayList<Map<String,Object>>();
-        for(Detail detail:detailService.FindAll()){
-            System.out.println(detail.getEmail());
-            Map<String,Object> student =new HashMap<String, Object>(){{
-                put("sname",detail.getFull_name());
-                put("sid",detail.getEmail());
-            }};
-            resultList.add(student);
-            model.addAttribute("resultList",resultList);
-        }
-        return "stu33";
     }
     @RequestMapping("/stu4")
     public String stu4(Map<String,Object> map,Model model){
@@ -168,10 +150,23 @@ public class UserController {
         return "redirect:http://localhost:8080/stu2";
     }
     @RequestMapping("check")
-    public String check(Map<String,Object>map){
+    public String check(Map<String,Object>map,Model model,Activity activity1){
+        map.put("msg","你好！    "+all.getFull_name());
         map.put("school",all.getSchool());
         map.put("name",all.getFull_name());
         map.put("id",all.getStudent_ID());
+        List<Map<String,Object>> resultList =new ArrayList<Map<String,Object>>();
+        for(Activity activity:activityService.getByCreaterAndLocation(202,activity1.getLocation())){
+            Map<String,Object> student =new HashMap<String, Object>(){{
+                put("id",activity.getId());
+                put("activity",activity.getActivity());
+                put("location",activity.getLocation());
+                put("pid",activity.getProject_id());
+                put("time",activity.getActivity_time());
+            }};
+            resultList.add(student);
+            model.addAttribute("resultList",resultList);
+        }
         return "check";
     }
     @RequestMapping("stu7")

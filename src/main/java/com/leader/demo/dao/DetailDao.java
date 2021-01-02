@@ -13,6 +13,7 @@ public interface DetailDao extends JpaRepository<Detail,Object>{
     public Detail getByNumberAndPassword(String number, String password);
     public Detail getByNumber(String number);
     public List<Detail> findAllBy();
+    public int deleteByNumber(String number);
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "update detail u set u.full_name=?1,u.student_ID=?2,u.email=?3 ,u.school=?4 where u.number = ?5",nativeQuery = true)

@@ -69,17 +69,13 @@
 <!-- Left side content -->
 <div id="leftSide">
     <div class="logo"><a href="#"><img src="images/logo1.png" alt="" width="150px"/></a></div>
-    
     <div class="sidebarSep mt0"></div>
-    
     <!-- Search widget -->
     <form action="http://localhost:8080/check" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+        <input type="text" name="location" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
-    
     <div class="sidebarSep"></div>
-
     <!-- Next update progress widget -->
     <div class="nextUpdate">
         <!-- <ul>
@@ -145,8 +141,9 @@
             <div class="userNav">
                 <ul>
                     <li><a href="#" title=""><img src="images/icons/topnav/profile.png" alt="" /><span>个人中心</span></a></li>
-                    <li><a href="#" title=""><img src="images/icons/topnav/tasks.png" alt="" /><span>任务</span></a></li>
-                    <li class="dd"><a title=""><img src="images/icons/topnav/messages.png" alt="" /><span>消息</span><span class="numberTop">8</span></a>
+                    <li><a href="#" title=""><img src="images/icons/topnav/messages.png" alt="" /><span>签到</span></a></li>
+                    <!-- -->
+                    <li class="dd"><a title=""><img src="images/icons/topnav/tasks.png" alt="" /><span>消息</span><span class="numberTop">8</span></a>
                         <ul class="userDropdown">
                             <li><a href="#" title="" class="sAdd">new message</a></li>
                             <li><a href="#" title="" class="sInbox">inbox</a></li>
@@ -225,7 +222,7 @@
             <div class="pageTitle">
                 <h5>实习项目</h5><br>
                 <!-- <h6>分享财富（T-4）</h6> -->
-                <span>实习者：<b th:text="${name}">&nbsp;&nbsp;</b> 所属地区：&nbsp;<b>上海市奉贤区&nbsp;&nbsp;</b> 所属学校：&nbsp;<b th:text="${school}">上海商学院&nbsp;&nbsp;</b> 日期：&nbsp;<b id = 'date'>2019-05-22 13：20</b></span>
+                <span>实习者：<b th:text="${name}">&nbsp;&nbsp;</b> 所属地区：&nbsp;<b th:text="${school}">上海市奉贤区&nbsp;&nbsp;</b> 所属学校：&nbsp;<b th:text="${school}">上海商学院&nbsp;&nbsp;</b> 日期：&nbsp;<b id = 'date'>2019-05-22 13：20</b></span>
             </div>
             <div class="middleNav">
                 <ul>
@@ -519,6 +516,5 @@
 </div>
 
 <div class="clear"></div>
-
 </body>
 </html>

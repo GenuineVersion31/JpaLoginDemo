@@ -10,4 +10,5 @@ public interface ActivityDao extends JpaRepository<Activity,Object> {
     public Activity getByCreater(int number);
     public List<Activity> findAllBy();
     public List<Activity> findAllByCreater(int creater);
+    public List<Activity> findAllByCreaterAndLocation(int creater,String location);
 }

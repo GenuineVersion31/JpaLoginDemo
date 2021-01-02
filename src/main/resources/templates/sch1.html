@@ -72,8 +72,8 @@
     <div class="sidebarSep mt0"></div>
     
     <!-- Search widget -->
-    <form action="" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+    <form action="http://localhost:8080/check3" class="sidebarSearch">
+        <input type="text" name="cname" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
     
@@ -127,7 +127,7 @@
     <!-- Top fixed navigation -->
     <div class="topNav">
         <div class="wrapper">
-            <div class="welcome"><a href="#" title=""><img src="images/userPic.png" alt="" /></a><span>你好  &nbsp;&nbsp;上海商学院</span></div>
+            <div class="welcome"><a href="#" title=""><img src="images/userPic.png" alt="" /></a><span th:text="${msg}"></span></div>
             <div class="userNav">
                 <ul>
                     <li><a href="#" title=""><img src="images/icons/topnav/profile.png" alt="" /><span>个人中心</span></a></li>
@@ -209,9 +209,10 @@
     <div class="titleArea">
         <div class="wrapper">
             <div class="pageTitle">
-                <h5>上海商学院</h5><br>
+                <h5 th:text="${school}">/h5><br>
                 <!-- <h6>分享财富（T-4）</h6> -->
-                <span><!-- 实习者：<b>韩梅梅&nbsp;&nbsp;</b> --> 所属地区：&nbsp;<b>上海市奉贤区&nbsp;&nbsp;<!-- </b> 所属学校：&nbsp;<b>上海商学院&nbsp;&nbsp;</b> --> 日期：&nbsp;<b id = 'date'>2019-05-22 13：20</b></b></span>
+                <span><!-- 实习者：<b>韩梅梅&nbsp;&nbsp;</b> --> 所属地区：&nbsp;<b th:text="${school}">&nbsp;&nbsp;<!-- </b> 所属学校：&nbsp;<b>上海商学院&nbsp;&nbsp;</b> --> 日期：&nbsp;<b id = 'date'>2019-05-22 13：20</b></b></span>
+                </h5>
             </div>
             <div class="middleNav">
                 <ul>
@@ -270,7 +271,7 @@
     
         <!-- Note -->
         <div class="nNote nInformation hideit">
-            <p>亲爱的&nbsp;&nbsp;<strong>上海商学院 </strong>本年实习生 <strong>800 </strong>人，在企实习生 <strong>800 </strong>人</p>
+            <p>亲爱的&nbsp;&nbsp;<strong th:text="${name}"> </strong>本年实习生 <strong>800 </strong>人，在企实习生 <strong>800 </strong>人</p>
         </div>
         <!-- Widgets -->
         <div class="widgets">
@@ -289,7 +290,7 @@
 									        	<fieldset>
 					                    <div class="formRow">
 					                        <label>学校名称：<span class="req">*</span></label>
-					                        <div class="formRight"><input type="text" class="validate[required]" name="req"  value="上海商学院"></div><div class="clear"></div>
+					                        <div class="formRight"><input type="text" class="validate[required]" name="req"  value="大连理工大学"></div><div class="clear"></div>
 					                    </div>
 					                    <div class="formRow">
 					                        <label>学校编号：<span class="req">*</span></label>

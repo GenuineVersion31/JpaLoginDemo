@@ -22,8 +22,8 @@ public class DetailController {
     UserServiceImpl userService;
     public String school;
     public Detail detail;
-    public String usn="";
-    public String pwd="";
+    public static String usn="";
+    public static String pwd="";
     public String email="";
     public String full_name="";
     public String category="";
@@ -31,33 +31,16 @@ public class DetailController {
     public User user;
     @RequestMapping("doFirst")
     public String doTest(User user1,Detail detail1){
-        System.out.println(user1.getUsername());
-        System.out.println(user1.getPassword());
-        usn=user1.getUsername();
-        pwd=user1.getPassword();
+        userService.insertUser(user1);
         email=detail1.getEmail();
         System.out.println(email);
-        return "redirect:http://localhost:8080/Sign_up_2";
+        return "redirect:http://localhost:8080/login";
     }
     @RequestMapping("doNext")
     public String doNext(Detail detail1){
-        full_name=detail1.getFull_name();
-        category=detail1.getCategory();
-        student_ID=detail1.getStudent_ID();
-        System.out.println(detail1.getCategory());
-        System.out.println(detail1.getFull_name());
-        System.out.println(detail1.getStudent_ID());
-        detail.setPassword(pwd);
-        detail.setEmail(email);
-        detail.setStudent_ID(student_ID);
-        System.out.println(detail.getEmail());
-        System.out.println(detail.getNumber());
-        System.out.println(detail.getPassword());
-        detail.setFull_name(full_name);
-        detail.setNumber(usn);
-        detail.setCategory(category);
+        System.out.println(detail1.getFull_name()+detail1.getStudent_ID()+detail1.getCategory()+detail1.getSchool());
         userService.insertUser(user);
-        detailService.insert(detail);
+        detailService.insert(detail1);
         return "redirect:http://localhost:8080/login";
     }
     @RequestMapping("/Sign_up_2")

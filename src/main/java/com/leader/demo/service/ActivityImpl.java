@@ -18,4 +18,5 @@ public class ActivityImpl {
         return  activityDao.findAllByCreater(creater);
     }
     public Activity getByCreater(int creater){ return activityDao.getByCreater(creater);}
+    public List<Activity> getByCreaterAndLocation(int careter, String location){return  activityDao.findAllByCreaterAndLocation(careter,location);}
 }

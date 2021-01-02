@@ -15,4 +15,5 @@ public class User1ServiceImpl {
         return user1Dao.findAllBy();
     }
     public List<User1> finduniversity(String university){ return  user1Dao.findByUniversity(university);}
+    public User1 findallbyname(String name){return  user1Dao.findAllByCname(name);}
 }

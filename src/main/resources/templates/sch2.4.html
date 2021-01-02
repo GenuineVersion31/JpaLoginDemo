@@ -72,8 +72,8 @@
     <div class="sidebarSep mt0"></div>
     
     <!-- Search widget -->
-    <form action="" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+    <form action="http://localhost:8080/check3" class="sidebarSearch">
+        <input type="text" name="cname" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
     
@@ -250,30 +250,28 @@
         <div class="widgets">
 					<div class="widget">
                     <div class="title"><img src="images/icons/dark/stats.png" alt="" class="titleIcon"><h6>学生评价</h6></div>
-                    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
-                        <thead>
-                            <tr>
-                                <td width="120">学号</td>
-                                <td width="80">姓名</td>
-                                <td>企业分</td>
-                                <td width="80">考勤分</td>
-                                <td width="200">教师分</td>
-                                <td width="80">情况汇总</td>
-                                <td width="80">综合分</td>
+                        <table cellpadding="0" cellspacing="0" width="100%" class="sTable" style="table-layout:fixed">
+                            <thead>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <td>企业分</td>
+                            <td width="80">考勤分</td>
+                            <td width="200">教师分</td>
+                            <td width="80">情况汇总</td>
+                            <td width="80">综合分</td>
+                            </thead>
+                            <tbody>
+                            <tbody>
+                            <tr th:each="entries,stat:${resultList}" >
+                                <td th:text="${entries['uid']}"></td>
+                                <td th:text="${entries['name']}"></td>
+                                <td>未评价</td>
+                                <td>未评价</td>
+                                <td >未评价</td>
+                                <td>未评价</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td align="center"><a href="#" title="">17102040116</a></td>
-                                <td align="center">李雷</td>
-                                <td align="center"><span>优秀</span></td>
-                                <td align="center">优秀</td>
-                                <td align="center">未评价</td>
-                                <td align="center"><a href="">查看</a></td>
-                                <td align="center"><a href=""></a></td>
-                            </tr>
-                        </tbody>
-                    </table> 
+                            </tbody>
+                        </table>
                 </div> 
             <div class="clear"></div>
         </div>

@@ -1,9 +1,12 @@
 package com.leader.demo.controller;
 import com.leader.demo.controller.UserController;
+import com.leader.demo.entity.Activity;
 import com.leader.demo.entity.Detail;
 import com.leader.demo.entity.User1;
+import com.leader.demo.service.ActivityImpl;
 import com.leader.demo.service.DetailServiceImpl;
 import com.leader.demo.service.User1ServiceImpl;
+import com.leader.demo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +24,10 @@ public class SchController {
     public DetailServiceImpl detailService;
     @Autowired
     public User1ServiceImpl user1Service;
+    @Autowired
+    UserServiceImpl userServiceImpl;
+    @Autowired
+    ActivityImpl activityService;
     @RequestMapping("/sch_index")
     public String sch_index(Map<String,Object> map){
         map.put("msg", "你好！    " + userController.all.getFull_name());
@@ -78,19 +85,41 @@ public class SchController {
         return "sch2.2";
     }
     @RequestMapping("/sch2.3")
-    public String sch4(Map<String,Object> map){
+    public String sch4(Map<String,Object> map,Model model){
         map.put("msg", "你好！    " + userController.all.getFull_name());
         map.put("name", userController.all.getFull_name());
         map.put("school", userController.all.getSchool());
         map.put("id", userController.all.getStudent_ID());
+        List<Map<String,Object>> resultList =new ArrayList<Map<String,Object>>();
+        for(User1 user1:user1Service.finduniversity(userController.all.getSchool())){
+            Map<String,Object> student =new HashMap<String, Object>(){{
+                put("uid",user1.getId());
+                put("name",user1.getCname());
+                put("time",user1.getModified_date());
+                put("school",user1.getUniversity());
+            }};
+            resultList.add(student);
+            model.addAttribute("resultList",resultList);
+        }
         return "sch2.3";
     }
     @RequestMapping("/sch2.4")
-    public String sch5(Map<String,Object> map){
+    public String sch5(Map<String,Object> map,Model model){
         map.put("msg", "你好！    " + userController.all.getFull_name());
         map.put("name", userController.all.getFull_name());
         map.put("school", userController.all.getSchool());
         map.put("id", userController.all.getStudent_ID());
+        List<Map<String,Object>> resultList =new ArrayList<Map<String,Object>>();
+        for(User1 user1:user1Service.finduniversity(userController.all.getSchool())){
+            Map<String,Object> student =new HashMap<String, Object>(){{
+                put("uid",user1.getId());
+                put("name",user1.getCname());
+                put("time",user1.getModified_date());
+                put("school",user1.getUniversity());
+            }};
+            resultList.add(student);
+            model.addAttribute("resultList",resultList);
+        }
         return "sch2.4";
     }
     @RequestMapping("/sch4")
@@ -109,5 +138,26 @@ public class SchController {
         map.put("id", userController.all.getStudent_ID());
         return "sch5";
     }
-
+    @RequestMapping("/check3")
+    public String check3(Map<String,Object> map, Model model, Activity activity2,User1 user2){
+        map.put("msg", "你好！    " + userController.all.getFull_name());
+        map.put("name", userController.all.getFull_name());
+        map.put("school", userController.all.getSchool());
+        map.put("id", userController.all.getStudent_ID());
+        System.out.println(user2.getCname());
+        User1 a=user1Service.findallbyname(user2.getCname());
+        List<Map<String,Object>> resultList =new ArrayList<Map<String,Object>>();
+        for(Activity activity:activityService.findAllByCreater(a.getId())){
+            Map<String,Object> student =new HashMap<String, Object>(){{
+                put("activity",activity.getActivity());
+                put("name",user2.getCname());
+                put("pid",activity.getProject_id());
+                put("time",activity.getActivity_time());
+                put("school",a.getUniversity());
+            }};
+            resultList.add(student);
+            model.addAttribute("resultList",resultList);
+        }
+        return "check3";
+    }
 }

@@ -20,4 +20,5 @@ public class UserServiceImpl {
     public int update(String password,  String username){
         return userDao.updateStatusById(password,username);
     }
+    public void delete(String username){userDao.deleteById(username);}
 }

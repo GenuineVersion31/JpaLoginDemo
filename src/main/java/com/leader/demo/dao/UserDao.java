@@ -10,8 +10,10 @@ import java.util.List;
 
 public interface UserDao extends JpaRepository<User,Integer> {
     public User getByPasswordAndUsername(String username, String password);
+    public void deleteById(String username);
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "update user u set u.password =?1 where u.username = ?2",nativeQuery = true)
     int updateStatusById( String password,  String username);
+
 }

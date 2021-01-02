@@ -9,4 +9,5 @@ import java.util.List;
 public interface User1Dao extends JpaRepository<User1,Integer> {
     public List<User1> findAllBy();
     public List<User1> findByUniversity(String university);
+    public User1 findAllByCname(String name);
 }

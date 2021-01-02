@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <title>个人考勤</title>
+    <title>查询界面</title>
     <link href="css/main.css" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -72,8 +72,8 @@
     <div class="sidebarSep mt0"></div>
 
     <!-- Search widget -->
-    <form action="" class="sidebarSearch">
-        <input type="text" name="search" placeholder="搜索..." id="ac" />
+    <form action="http://localhost:8080/check" class="sidebarSearch">
+        <input type="text" name="location" placeholder="搜索..." id="ac" />
         <input type="submit" value="" />
     </form>
 
@@ -285,98 +285,23 @@
         <div class="widgets">
             <div class="widget">
                 <div class="title"><h6>个人考勤</h6><div class="num"><a href="#" class="blueNum">你有9次考勤记录，已打卡5次。</a></div></div>
-                <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable" style="table-layout:fixed">
                     <thead>
-                    <tr>
-                        <td width="170">公司id</td>
-                        <td width="170">公司名称</td>
-                        <td width="170">学校id</td>
-                        <td width="170">学校名称</td>
-                        <td width="170">生成时间</td>
-                    </tr>
+                    <th>id</th>
+                    <th>任务编号</th>
+                    <th>任务</th>
+                    <th>地点</th>
+                    <th>开始时间</th>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink">17102040231</a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsPlus">已打卡</span></td>
-                        <td align="center">2019-05-20 13:46:58</td>
-                        <td align="center">录入</td>
+                    <tbody>
+                    <tr th:each="entries,stat:${resultList}" >
+                        <td th:text="${entries['id']}"></td>
+                        <td th:text="${entries['pid']}"></td>
+                        <td th:text="${entries['activity']}"></td>
+                        <td th:text="${entries['location']}"></td>
+                        <td th:text="${entries['time']}"></td>
                     </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsMinus">未打卡</span></td>
-                        <td align="center">2019-05-19 13:46:58</td>
-                        <td align="center">未录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsPlus">已打卡</span></td>
-                        <td align="center">2019-05-18 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsMinus">未打卡</span></td>
-                        <td align="center">2019-05-17 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsPlus">已打卡</span></td>
-                        <td align="center">2019-05-16 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsMinus">未打卡</span></td>
-                        <td align="center">2019-05-15 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsPlus">已打卡</span></td>
-                        <td align="center">2019-05-14 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsMinus">未打卡</span></td>
-                        <td align="center">2019-05-13 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsPlus">已打卡</span></td>
-                        <td align="center">2019-05-12 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
-                        <td align="center"><a href="#" title="" class="webStatsLink" th:text="${id}"></a></td>
-                        <td align="center" th:text="${name}"></td>
-                        <td align="center">MP551538</td>
-                        <td align="center"><span class="statsMinus">未打卡</span></td>
-                        <td align="center">2019-05-11 13:46:58</td>
-                        <td align="center">录入</td>
-                    </tr>
-                    <tr>
                     </tbody>
                 </table>
             </div>
